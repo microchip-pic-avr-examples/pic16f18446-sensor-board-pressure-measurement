@@ -1,0 +1,188 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"36 ./plot.h
+[; ;./plot.h: 36: {
+[s S1 `uc -> 128 `i `uc -> 128 `i `uc 1 ]
+[n S1 . plotBuf oldPlotBuf plotBufIndex ]
+"81 ./graphics.h
+[; ;./graphics.h: 81: void GFX_DrawPixel(uint8_t x, uint8_t y, uint16_t color);
+[v _GFX_DrawPixel `(v ~T0 @X0 0 ef3`uc`uc`us ]
+"13 plot.c
+[; ;plot.c: 13: plot_t plot1, plot2;
+[v _plot1 `S1 ~T0 @X0 1 e ]
+[v _plot2 `S1 ~T0 @X0 1 e ]
+"15
+[; ;plot.c: 15: void addToPlot(plot_t* plot, int16_t sample) {
+[v _addToPlot `(v ~T0 @X0 1 ef2`*S1`s ]
+{
+[e :U _addToPlot ]
+[v _plot `*S1 ~T0 @X0 1 r1 ]
+[v _sample `s ~T0 @X0 1 r2 ]
+[f ]
+"17
+[; ;plot.c: 17:     if(sample<0) {
+[e $ ! < -> _sample `i -> 0 `i 14  ]
+{
+"18
+[; ;plot.c: 18:         sample = 0;
+[e = _sample -> -> 0 `i `s ]
+"19
+[; ;plot.c: 19:     }
+}
+[e :U 14 ]
+"20
+[; ;plot.c: 20:     if(sample>255) {
+[e $ ! > -> _sample `i -> 255 `i 15  ]
+{
+"21
+[; ;plot.c: 21:         sample = 255;
+[e = _sample -> -> 255 `i `s ]
+"22
+[; ;plot.c: 22:     }
+}
+[e :U 15 ]
+"24
+[; ;plot.c: 24:     plot->oldPlotBuf[plot->plotBufIndex] = plot->plotBuf[(plot->plotBufIndex+127)%128];
+[e = *U + &U . *U _plot 1 * -> . *U _plot 2 `ux -> -> # *U &U . *U _plot 1 `ui `ux *U + &U . *U _plot 0 * -> -> % + -> . *U _plot 2 `i -> 127 `i -> 128 `i `ui `ux -> -> # *U &U . *U _plot 0 `ui `ux ]
+"25
+[; ;plot.c: 25:     plot->plotBuf[plot->plotBufIndex] = sample;
+[e = *U + &U . *U _plot 0 * -> . *U _plot 2 `ux -> -> # *U &U . *U _plot 0 `ui `ux -> _sample `uc ]
+"26
+[; ;plot.c: 26:     plot->plotBufIndex++;
+[e ++ . *U _plot 2 -> -> 1 `i `uc ]
+"27
+[; ;plot.c: 27:     plot->plotBufIndex = plot->plotBufIndex % 128;
+[e = . *U _plot 2 -> % -> . *U _plot 2 `i -> 128 `i `uc ]
+"28
+[; ;plot.c: 28: }
+[e :UE 13 ]
+}
+"30
+[; ;plot.c: 30: void clearPlot(plot_t* plot, uint8_t value) {
+[v _clearPlot `(v ~T0 @X0 1 ef2`*S1`uc ]
+{
+[e :U _clearPlot ]
+[v _plot `*S1 ~T0 @X0 1 r1 ]
+[v _value `uc ~T0 @X0 1 r2 ]
+[f ]
+"31
+[; ;plot.c: 31:     for(uint8_t i=0; i<128; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 128 `i 17  ]
+[e $U 18  ]
+[e :U 17 ]
+{
+"32
+[; ;plot.c: 32:         plot->oldPlotBuf[i] = value;
+[e = *U + &U . *U _plot 1 * -> _i `ux -> -> # *U &U . *U _plot 1 `ui `ux _value ]
+"33
+[; ;plot.c: 33:         plot->plotBuf[i] = value;
+[e = *U + &U . *U _plot 0 * -> _i `ux -> -> # *U &U . *U _plot 0 `ui `ux _value ]
+"34
+[; ;plot.c: 34:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 128 `i 17  ]
+[e :U 18 ]
+}
+"35
+[; ;plot.c: 35:     plot->plotBufIndex = 0;
+[e = . *U _plot 2 -> -> 0 `i `uc ]
+"36
+[; ;plot.c: 36: }
+[e :UE 16 ]
+}
+"39
+[; ;plot.c: 39: void drawPlot(plot_t* plot, uint8_t x, uint8_t y, uint8_t h, uint16_t color) {
+[v _drawPlot `(v ~T0 @X0 1 ef5`*S1`uc`uc`uc`us ]
+{
+[e :U _drawPlot ]
+[v _plot `*S1 ~T0 @X0 1 r1 ]
+[v _x `uc ~T0 @X0 1 r2 ]
+[v _y `uc ~T0 @X0 1 r3 ]
+[v _h `uc ~T0 @X0 1 r4 ]
+[v _color `us ~T0 @X0 1 r5 ]
+[f ]
+"40
+[; ;plot.c: 40:     uint16_t sample;
+[v _sample `us ~T0 @X0 1 a ]
+"42
+[; ;plot.c: 42:     uint8_t x1, y1;
+[v _x1 `uc ~T0 @X0 1 a ]
+[v _y1 `uc ~T0 @X0 1 a ]
+"46
+[; ;plot.c: 46:     for(uint16_t i=0; i<127; i++) {
+{
+[v _i `us ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `us ]
+[e $ < -> _i `ui -> -> 127 `i `ui 21  ]
+[e $U 22  ]
+[e :U 21 ]
+{
+"48
+[; ;plot.c: 48:         x1 = x+i;
+[e = _x1 -> + -> _x `ui -> _i `ui `uc ]
+"51
+[; ;plot.c: 51:         sample = 255 - plot->oldPlotBuf[(plot->plotBufIndex+i)%128];
+[e = _sample -> - -> 255 `i -> *U + &U . *U _plot 1 * -> % + -> . *U _plot 2 `ui -> _i `ui -> -> 128 `i `ui `ux -> -> # *U &U . *U _plot 1 `ui `ux `i `us ]
+"52
+[; ;plot.c: 52:         sample *= h;
+[e =* _sample -> _h `us ]
+"53
+[; ;plot.c: 53:         sample = sample >> 8;
+[e = _sample -> >> -> _sample `ui -> 8 `i `us ]
+"54
+[; ;plot.c: 54:         if(sample>h-1) {
+[e $ ! > -> _sample `ui -> - -> _h `i -> 1 `i `ui 24  ]
+{
+"55
+[; ;plot.c: 55:             sample = h-1;
+[e = _sample -> - -> _h `i -> 1 `i `us ]
+"56
+[; ;plot.c: 56:         }
+}
+[e :U 24 ]
+"57
+[; ;plot.c: 57:         y1 = y+sample;
+[e = _y1 -> + -> _y `ui -> _sample `ui `uc ]
+"67
+[; ;plot.c: 67:         GFX_DrawPixel(x1, y1, 0x0000);
+[e ( _GFX_DrawPixel (3 , , _x1 _y1 -> -> 0 `i `us ]
+"73
+[; ;plot.c: 73:         sample = 255 - plot->plotBuf[(plot->plotBufIndex+i)%128];
+[e = _sample -> - -> 255 `i -> *U + &U . *U _plot 0 * -> % + -> . *U _plot 2 `ui -> _i `ui -> -> 128 `i `ui `ux -> -> # *U &U . *U _plot 0 `ui `ux `i `us ]
+"74
+[; ;plot.c: 74:         sample *= h;
+[e =* _sample -> _h `us ]
+"75
+[; ;plot.c: 75:         sample = sample >> 8;
+[e = _sample -> >> -> _sample `ui -> 8 `i `us ]
+"76
+[; ;plot.c: 76:         if(sample>h-1) {
+[e $ ! > -> _sample `ui -> - -> _h `i -> 1 `i `ui 25  ]
+{
+"77
+[; ;plot.c: 77:             sample = h-1;
+[e = _sample -> - -> _h `i -> 1 `i `us ]
+"78
+[; ;plot.c: 78:         }
+}
+[e :U 25 ]
+"79
+[; ;plot.c: 79:         y1 = y+sample;
+[e = _y1 -> + -> _y `ui -> _sample `ui `uc ]
+"89
+[; ;plot.c: 89:         GFX_DrawPixel(x1, y1, color);
+[e ( _GFX_DrawPixel (3 , , _x1 _y1 _color ]
+"92
+[; ;plot.c: 92:     }
+}
+[e ++ _i -> -> 1 `i `us ]
+[e $ < -> _i `ui -> -> 127 `i `ui 21  ]
+[e :U 22 ]
+}
+"93
+[; ;plot.c: 93: }
+[e :UE 20 ]
+}
