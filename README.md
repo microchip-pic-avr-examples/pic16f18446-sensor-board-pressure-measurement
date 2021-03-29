@@ -22,6 +22,7 @@ Pressure sensor:
 
 ![Pressure Sensor](images/pressure_sensor.png)
 
+
 ### MCC settings for MSSP, CLC, FVR, and ADCC. MSSP + CLC are used for the LCD control.
 
 ### MSSP Settings
