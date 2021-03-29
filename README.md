@@ -50,5 +50,6 @@ ADRPT register is set to 0x40, to average a burst of 64 samples.
 ![PIN Module](images/PIN_Module.png)
 
 
-Demo: 
+Demo:
+
 ![Battery Measurement](images/display.png)
