@@ -1,22 +1,28 @@
-<div id="readme" class="Box-body readme blob js-code-block-container">
-  <article class="markdown-body entry-content p-3 p-md-6" itemprop="text"><p><a href="https://www.microchip.com" rel="nofollow"><img src="https://camo.githubusercontent.com/5fb5505f69a28ff407841612dfe2b7004f210594/68747470733a2f2f636c6475702e636f6d2f553071684c7742696a462e706e67" alt="MCHP" data-canonical-src="https://cldup.com/U0qhLwBijF.png" style="max-width:100%;"></a></p>
+[![MCHP](images/microchip.png)](https://www.microchip.com)
 
+# PIC16F18446 Sensor Board Pressure Measurement
 
-# Introduction
 The PIC16F184xx family has a new Analog to Digital Converter with Computation (ADCC) with a 12-bit resolution. This project shows the reading of an analog pressure sensor (MP3V5050GP) using the ADCC.
+In this example the pressure sensor value is read and the current atmospheric pressure in Pascal units is displaied on the on-board LCD. Two graphs will show the variations of the 12-bit and 10-bit pressure values in real time.
 
-# Description
-In this example we will be using the PIC16F18446 Sensor Board. The PIC reads the pressure sensor, and displays the current atmospheric pressure in Pascal units. Also, two graphs display the variations of the 12-bit and 10-bit pressure values in real time.
+## Software Used
+- MPLAB® X IDE 5.30 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
+- MPLAB® XC8 2.10 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
+- MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
+- MPLAB® Code Configurator (MCC) Device Libraries 8-bit AVR MCUs 2.3.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
+- PIC16F1xxxx DFP 1.2.99 or newer Device Pack
 
-![Battery Measurement](images/display.png)
+## Hardware Used
+- [PIC16F18446 Sensor Board Demonstration](https://www.microchip.com/promo/pic16f18446-sensor-board-demonstration)
 
-Here is a picture of the pressure sensor:
+
+## Setup
+
+Pressure sensor:
 
 ![Pressure Sensor](images/pressure_sensor.png)
 
-# MCC Settings
-
-Here are the settings used for MSSP, CLC, FVR, and ADCC. MSSP + CLC are used for the LCD control.
+### MCC settings for MSSP, CLC, FVR, and ADCC. MSSP + CLC are used for the LCD control.
 
 ### MSSP Settings
 ![MSSP Settings](images/MSSP1.png)
@@ -28,6 +34,7 @@ Here are the settings used for MSSP, CLC, FVR, and ADCC. MSSP + CLC are used for
 
 ### FVR Settings
 FVR is used as positive refference for the ADCC, to get higher accuracy and gain.
+
 ![FVR Settings](images/FVR.png)
 
 ### ADCC settings
@@ -40,3 +47,7 @@ ADRPT register is set to 0x40, to average a burst of 64 samples.
 
 ### PIN Module
 ![PIN Module](images/PIN_Module.png)
+
+
+Demo: 
+![Battery Measurement](images/display.png)

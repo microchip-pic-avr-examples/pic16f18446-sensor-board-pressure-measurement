@@ -5,7 +5,7 @@
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic16f18446-sensor-board-pressure-measurement",
         "version": "1.0.1",
-        "displayName": "Sensor Board Pressure Measurement",
+        "displayName": "PIC16F18446 Sensor Board Pressure Measurement",
         "projectName": "pic16f18446-sensor-board-pressure-measurement",
         "shortDescription": "This project shows how to read an analog pressure sensor (MP3V5050GP) using the ADCC.",
         "ide": {
@@ -39,7 +39,8 @@
         "author": "Microchip",
         "subcategories": [
             [
-               "Peripherals", "ADCC"
+               "Peripherals",
+			   "ADCC"
             ]
         ],
         "peripherals": [
