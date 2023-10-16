@@ -4,24 +4,17 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
             <name>pic16f18446-sensor-board-pressure-measurement</name>
-            <creation-uuid>40c42caa-8d10-481e-b3b7-0771367caa39</creation-uuid>
+            <creation-uuid>7a268e1f-5e73-44fd-bd14-95740fae4262</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions>c</c-extensions>
-            <cpp-extensions/>
-            <header-extensions>h</header-extensions>
-            <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
+                <sourceRootElem>../pic16f18446-sensor-board-pressure-measurement-master/pic16f18446-sensor-board-pressure-measurement-master/pic16f18446-sensor-board-pressure-measurement.X</sourceRootElem>
                 <sourceRootElem>.</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
-                    <name>free</name>
-                    <type>2</type>
-                </confElem>
-                <confElem>
-                    <name>pro</name>
+                    <name>default</name>
                     <type>2</type>
                 </confElem>
             </confList>
