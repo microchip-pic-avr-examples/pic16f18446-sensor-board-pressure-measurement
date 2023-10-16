@@ -52,14 +52,14 @@ The following configurations must be made for this project:
   - Input Data Sampled At: Middle
   - Clock Source Selection: F<sub>OSC</sub>/4 
 
-  <br><img src="images/mssp1.png" width="600">
+  <br><img src="images/MSSP1.png" width="600">
 
 - CLC:
   - Enable CLC: Yes
   - Operating Mode: AND-OR 
 
-  <br><img src="images/clc1.png" width="600">
-  <br><img src="images/clc2.png" width="600">
+  <br><img src="images/CLC1.png" width="600">
+  <br><img src="images/CLC2.png" width="600">
 
 - FVR:
 <br>FVR is used as a positive reference for the ADCC to get higher accuracy and gain.
@@ -67,7 +67,7 @@ The following configurations must be made for this project:
   - FVR buffer gain to ADC: 1x
   - FVR buffer gain to other peripherals: 1x
 
-  <br><img src="images/fvr.png" width="600">
+  <br><img src="images/FVR.png" width="600">
 
 - ADCC:
   - Enable ADC: Yes
@@ -88,7 +88,7 @@ The following configurations must be made for this project:
   <i>Repeat</i> is set to 64 to average a burst of 64 samples.
 
 - PIN_Grid
-  <br><img src="images/pin_grid.png" width="600">
+  <br><img src="images/PIN_Grid.png" width="600">
 
 - PIN_Module
   <br><img src="images/pins.png" width="600">
