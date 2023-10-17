@@ -7,13 +7,13 @@ In this example the pressure sensor value is read and the current atmospheric pr
 
 ## Related Documentation
 - [PIC16F18446 Product Family Page](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic16f18446)
-- [PIC16F18446 datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/40001985B.pdf) for more information.
+- [PIC16F18446 Data Sheet](http://ww1.microchip.com/downloads/en/DeviceDoc/40001985B.pdf)
 
 ## Software Used
 
 - [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) v6.15 or newer
-- [MPLAB® XC8](http://www.microchip.com/mplab/compilers) v2.45 or newer
-- [MPLAB® Code Configurator (MCC)](https://microchip.com/mplab/mplab-code-configurator) v5.3.7
+- [MPLAB XC8](http://www.microchip.com/mplab/compilers) v2.45 or newer
+- [MPLAB Code Configurator (MCC)](https://microchip.com/mplab/mplab-code-configurator) v5.3.7
 - [PIC16F1xxxx_DFP](https://packs.download.microchip.com/) v1.21.368
 
 ## Hardware Used
@@ -23,7 +23,7 @@ In this example the pressure sensor value is read and the current atmospheric pr
 
 ## Operation
 
-To program the microcontroller with this MPLAB® X project, follow the steps provided in the [How to Program the Microcontroller](#how-to-program-the-microcontroller) chapter.<br><br>
+To program the microcontroller with this MPLAB® X project, follow the steps provided in the [How to Program the Microcontroller](#how-to-program-the-microcontroller) section.<br><br>
 
 ## Setup
 Pressure sensor:
@@ -86,10 +86,12 @@ The following configurations must be made for this project:
   <br><img src="images/adcc_2.png" width="600">
 
   <i>Repeat</i> is set to 64 to average a burst of 64 samples.
-
+  
+  <br>
 - PIN_Grid
   <br><img src="images/PIN_Grid.png" width="600">
 
+  <br>
 - PIN_Module
   <br><img src="images/pins.png" width="600">
 
